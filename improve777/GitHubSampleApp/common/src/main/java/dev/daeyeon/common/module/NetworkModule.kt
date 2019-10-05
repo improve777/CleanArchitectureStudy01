@@ -2,15 +2,16 @@ package dev.daeyeon.common.module
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-fun createNetworkModule(uri: String, isDebug: Boolean) = module {
+fun createNetworkModule(name: String, uri: String, isDebug: Boolean) = module {
 
-    single<Retrofit> { createRetrofit(uri, isDebug) }
+    single(named(name = name)) { createRetrofit(uri, isDebug) }
 }
 
 private fun createRetrofit(uri: String, isDebug: Boolean) =
