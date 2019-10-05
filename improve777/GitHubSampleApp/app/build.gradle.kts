@@ -80,4 +80,7 @@ dependencies {
 
     // tedPermission
     implementation(Libraries.tedPermission)
+
+    // kakao
+    implementation(Libraries.kakaoUserMgmt)
 }

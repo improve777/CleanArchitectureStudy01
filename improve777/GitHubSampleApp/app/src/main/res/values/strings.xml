@@ -4,4 +4,6 @@
     <string name="main_search">search</string>
     <string name="main_input_search_text_plz">검색어를 입력해주세요</string>
     <string name="all_number_fmt">%,d</string>
+
+    <string name="kakao_app_key">cdba1ccea0cc0ca925a7e635f27e64dd</string>
 </resources>

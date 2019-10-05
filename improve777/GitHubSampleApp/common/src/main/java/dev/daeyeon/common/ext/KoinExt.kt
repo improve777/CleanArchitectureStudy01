@@ -14,7 +14,7 @@ fun initKoin(
     modules: List<Module>
 ) {
     startKoin {
-        androidLogger(if (isDebuggable) Level.DEBUG else Level.INFO)
+        // androidLogger(if (isDebuggable) Level.DEBUG else Level.INFO)
         androidContext(applicationContext)
         androidFileProperties()
         modules(modules)

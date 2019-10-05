@@ -1,9 +1,11 @@
 package dev.daeyeon.githubsampleapp.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.kakao.auth.Session
 import dev.daeyeon.common.base.BaseActivity
 import dev.daeyeon.common.base.BaseViewModel
 import dev.daeyeon.githubsampleapp.R
@@ -28,6 +30,16 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>(
         val navController = host.navController
 
         initBottomNavView(navController)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
+            return
+        }
+
+        super.onActivityResult(requestCode, resultCode, data)
+
+
     }
 
     private fun initBottomNavView(navController: NavController) {

@@ -50,4 +50,6 @@ dependencies {
 
     // timber
     implementation(Libraries.timber)
+
+    implementation(Libraries.kakaoUserMgmt)
 }

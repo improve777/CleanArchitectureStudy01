@@ -65,6 +65,8 @@ object Versions {
     const val junit = "4.12"
     const val androidJunit = "1.1.1"
     const val espresso = "3.2.0"
+
+    const val kakao = "1.23.0"
 }
 
 object Libraries {
@@ -117,6 +119,13 @@ object Libraries {
     const val junit = "junit:junit:${Versions.junit}"
     const val androidJunit = "androidx.test.ext:junit:${Versions.androidJunit}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+
+    const val kakaoUserMgmt = "com.kakao.sdk:usermgmt:${Versions.kakao}"
+    const val kakaoLink = "com.kakao.sdk:kakaolink:${Versions.kakao}"
+    const val kakaoTalk = "com.kakao.sdk:kakaotalk:${Versions.kakao}"
+    const val kakaoNavi = "com.kakao.sdk:kakaonavi:${Versions.kakao}"
+    const val kakaoStory = "com.kakao.sdk:kakaostory:${Versions.kakao}"
+    const val kakaoPush = "com.kakao.sdk:push:${Versions.kakao}"
 }
 
 object BuildPlugins {

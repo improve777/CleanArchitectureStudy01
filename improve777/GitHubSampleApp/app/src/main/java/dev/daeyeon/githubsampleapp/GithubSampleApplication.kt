@@ -1,6 +1,9 @@
 package dev.daeyeon.githubsampleapp
 
 import android.app.Application
+import com.kakao.auth.IApplicationConfig
+import com.kakao.auth.KakaoAdapter
+import com.kakao.auth.KakaoSDK
 import dev.daeyeon.common.BuildConfig
 import dev.daeyeon.common.ext.initKoin
 import dev.daeyeon.common.module.createNetworkModule
@@ -13,6 +16,8 @@ class GithubSampleApplication : Application() {
         super.onCreate()
 
         Timber.plant(Timber.DebugTree())
+
+        initKakao()
 
         initKoin(
             applicationContext = this,
@@ -27,5 +32,12 @@ class GithubSampleApplication : Application() {
                 viewModelModule
             )
         )
+    }
+
+    private fun initKakao() {
+        KakaoSDK.init(object : KakaoAdapter() {
+            override fun getApplicationConfig() =
+                IApplicationConfig { this@GithubSampleApplication.applicationContext }
+        })
     }
 }
