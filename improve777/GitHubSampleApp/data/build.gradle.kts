@@ -41,12 +41,6 @@ dependencies {
     androidTestImplementation(Libraries.androidJunit)
     androidTestImplementation(Libraries.espresso)
 
-    // retrofit
-    implementation(Libraries.retrofit)
-    implementation(Libraries.gsonConverter)
-    implementation(Libraries.rxJavaAdapter)
-    implementation(Libraries.loggingInterceptor)
-
     // rxJava
     implementation(Libraries.rxJava)
     implementation(Libraries.rxKotlin)

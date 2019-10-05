@@ -7,6 +7,10 @@ object Modules {
 
     const val app = ":app"
 
+    const val remote = ":remote"
+
+    const val local = ":local"
+
     const val data = ":data"
 
     const val domain = ":domain"

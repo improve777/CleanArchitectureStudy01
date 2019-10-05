@@ -1,9 +1,8 @@
-package dev.daeyeon.data.remote.api
+package dev.daeyeon.remote.api
 
-import dev.daeyeon.data.remote.response.RepoResponse
+import dev.daeyeon.remote.response.RepoResponse
 import io.reactivex.Single
 import retrofit2.http.GET
-import retrofit2.http.Headers
 import retrofit2.http.Path
 
 interface GithubApi {

@@ -1,7 +1,6 @@
 package dev.daeyeon.data.mapper
 
 import dev.daeyeon.data.local.entity.RepoEntity
-import dev.daeyeon.data.remote.response.RepoResponse
 import dev.daeyeon.domain.entity.Repo
 
 class RepoMapper {
@@ -34,21 +33,6 @@ class RepoMapper {
                 language = language,
                 licenseName = licenseName,
                 forksCount = forksCount
-            )
-        }
-
-    fun toRepo(repoResponse: RepoResponse) =
-        with(repoResponse) {
-            Repo(
-                id = id.toLong(),
-                repoName = name,
-                ownerName = owner.login,
-                repoUrl = htmlUrl,
-                starCount = stargazersCount,
-                watchersCount = watchersCount,
-                language = language,
-                licenseName = license?.name,
-                forksCount = forks
             )
         }
 }
