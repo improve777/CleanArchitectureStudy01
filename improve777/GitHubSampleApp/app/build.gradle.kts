@@ -47,6 +47,10 @@ dependencies {
     implementation(Libraries.ktxCore)
     implementation(Libraries.constraintLayout)
 
+    // navigation
+    implementation(Libraries.navigationUiKtx)
+    implementation(Libraries.navigationFragmentKtx)
+
     // test
     testImplementation(Libraries.junit)
     androidTestImplementation(Libraries.androidJunit)

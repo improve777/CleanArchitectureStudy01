@@ -35,6 +35,8 @@ object Versions {
     const val appcompat = "1.1.0"
     const val lifecycleExt = "2.1.0"
 
+    const val navigation = "2.2.0-alpha03"
+
     const val room = "2.2.0-rc01"
 
     const val material = "1.0.0"
@@ -69,6 +71,14 @@ object Libraries {
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
 
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+
+    // java
+    const val navigationUi = "androidx.navigation:navigation-ui:${Versions.navigation}"
+    const val navigationFragment = "androidx.navigation:navigation-fragment:${Versions.navigation}"
+
+    // kotlin
+    const val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+    const val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
 
     const val room = "androidx.room:room-runtime:$${Versions.room}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
@@ -112,6 +122,7 @@ object Libraries {
 object BuildPlugins {
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.gradle}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    const val navigationGradlePlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
 
     const val androidApplication = "com.android.application"
     const val kotlin = "kotlin"
