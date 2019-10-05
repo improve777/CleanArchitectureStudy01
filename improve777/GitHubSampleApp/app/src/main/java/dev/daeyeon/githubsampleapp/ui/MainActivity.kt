@@ -1,23 +1,19 @@
 package dev.daeyeon.githubsampleapp.ui
 
 import android.os.Bundle
-import android.view.inputmethod.EditorInfo
-import androidx.recyclerview.widget.DiffUtil
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import dev.daeyeon.common.base.BaseActivity
-import dev.daeyeon.common.base.SimpleRecyclerView
-import dev.daeyeon.common.ext.hideKeyboard
-import dev.daeyeon.githubsampleapp.BR
+import dev.daeyeon.common.base.BaseViewModel
 import dev.daeyeon.githubsampleapp.R
 import dev.daeyeon.githubsampleapp.databinding.ActivityMainBinding
-import dev.daeyeon.githubsampleapp.databinding.ItemRepoBinding
-import dev.daeyeon.githubsampleapp.model.RepoModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
-    layoutId = R.layout.activity_main,
-    bindingVariableId = BR.vm
+class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>(
+    layoutId = R.layout.activity_main
 ) {
-    override val viewModel: MainViewModel by viewModel()
+    override val viewModel: BaseViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,37 +22,15 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
     }
 
     private fun initView() {
-        initEtSearchOption()
-        initRecyclerViewAdapter()
+        val host = supportFragmentManager
+            .findFragmentById(R.id.fragment_nav_host) as? NavHostFragment ?: return
+
+        val navController = host.navController
+
+        initBottomNavView(navController)
     }
 
-    private fun initEtSearchOption() {
-        binding.etMainSearch.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                viewModel.searchRepos(true)
-                hideKeyboard()
-            }
-            return@setOnEditorActionListener true
-        }
-    }
-
-    private fun initRecyclerViewAdapter() {
-        binding.rvMain.adapter =
-            object : SimpleRecyclerView.ListAdapter<RepoModel, ItemRepoBinding>(
-                layoutRes = R.layout.item_repo,
-                bindingVariableId = BR.repo,
-                diffCallback = object : DiffUtil.ItemCallback<RepoModel>() {
-                    override fun areItemsTheSame(oldItem: RepoModel, newItem: RepoModel): Boolean {
-                        return oldItem.id == newItem.id
-                    }
-
-                    override fun areContentsTheSame(
-                        oldItem: RepoModel,
-                        newItem: RepoModel
-                    ): Boolean {
-                        return oldItem == newItem
-                    }
-                }
-            ) {}
+    private fun initBottomNavView(navController: NavController) {
+        binding.bottomNavView.setupWithNavController(navController)
     }
 }

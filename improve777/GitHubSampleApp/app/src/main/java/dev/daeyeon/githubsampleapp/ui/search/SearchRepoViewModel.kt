@@ -1,4 +1,4 @@
-package dev.daeyeon.githubsampleapp.ui
+package dev.daeyeon.githubsampleapp.ui.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,16 +6,14 @@ import dev.daeyeon.common.base.BaseViewModel
 import dev.daeyeon.domain.DataResult
 import dev.daeyeon.domain.entity.Repo
 import dev.daeyeon.domain.usecase.GetReposUseCase
-import dev.daeyeon.domain.usecase.SaveReposUseCase
 import dev.daeyeon.githubsampleapp.R
 import dev.daeyeon.githubsampleapp.model.RepoModel
 import dev.daeyeon.githubsampleapp.model.mapper.toPresentation
 import io.reactivex.rxkotlin.addTo
 import timber.log.Timber
 
-class MainViewModel(
-    private val getReposUseCase: GetReposUseCase,
-    private val saveReposUseCase: SaveReposUseCase
+class SearchRepoViewModel(
+    private val getReposUseCase: GetReposUseCase
 ) : BaseViewModel() {
 
     private val _repos = MutableLiveData<List<RepoModel>>()
@@ -56,26 +54,4 @@ class MainViewModel(
         )
             .addTo(compositeDisposable)
     }
-
-    private fun saveRepos(repos: List<Repo>) {
-        saveReposUseCase(
-            repos = repos,
-            onResult = {
-                when (it) {
-                    is DataResult.Success -> {
-                        Timber.w("저장완료")
-                        sendToast("저장완료")
-                    }
-                    is DataResult.Error -> {
-                        Timber.w(it.error)
-                        sendToast("저장실패")
-                    }
-                    DataResult.Loading -> {
-                        /*ignored*/
-                    }
-                }
-            }
-        )
-    }
 }
-
