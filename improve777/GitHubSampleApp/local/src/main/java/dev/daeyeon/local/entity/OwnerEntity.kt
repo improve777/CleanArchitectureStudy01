@@ -1,4 +1,4 @@
-package dev.daeyeon.data.local.entity
+package dev.daeyeon.local.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

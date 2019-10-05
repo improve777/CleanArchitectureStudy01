@@ -1,4 +1,4 @@
-package dev.daeyeon.data.local
+package dev.daeyeon.local.database
 
 import android.content.Context
 import androidx.room.Room

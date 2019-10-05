@@ -1,8 +1,8 @@
-package dev.daeyeon.data.local.dao
+package dev.daeyeon.local.dao
 
 import androidx.room.Dao
 import androidx.room.Query
-import dev.daeyeon.data.local.entity.RepoEntity
+import dev.daeyeon.local.entity.RepoEntity
 import io.reactivex.Maybe
 
 @Dao

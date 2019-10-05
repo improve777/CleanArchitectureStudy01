@@ -48,10 +48,4 @@ dependencies {
 
     // timber
     implementation(Libraries.timber)
-
-    // room
-    api(Libraries.room)
-    implementation(Libraries.roomKtx)
-    kapt(Libraries.roomCompiler)
-    implementation(Libraries.roomRxJava)
 }

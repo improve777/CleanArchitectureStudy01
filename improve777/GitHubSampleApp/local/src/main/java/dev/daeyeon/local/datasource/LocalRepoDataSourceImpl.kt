@@ -1,8 +1,8 @@
-package dev.daeyeon.data.local
+package dev.daeyeon.local.datasource
 
 import dev.daeyeon.data.datasource.LocalRepoDataSource
-import dev.daeyeon.data.local.dao.RepoDao
-import dev.daeyeon.data.mapper.RepoMapper
+import dev.daeyeon.local.dao.RepoDao
+import dev.daeyeon.local.mapper.RepoLocalMapper
 import dev.daeyeon.domain.entity.Repo
 import dev.daeyeon.data.scheduler.SchedulersProvider
 import io.reactivex.Completable
@@ -11,7 +11,7 @@ import io.reactivex.Maybe
 class LocalRepoDataSourceImpl(
     private val repoDao: RepoDao,
     private val scheduler: SchedulersProvider,
-    private val repoMapper: RepoMapper
+    private val repoMapper: RepoLocalMapper
 ) : LocalRepoDataSource {
 
     override fun insertRepo(repo: Repo): Completable =

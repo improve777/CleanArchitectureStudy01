@@ -1,11 +1,10 @@
-package dev.daeyeon.data.mapper
+package dev.daeyeon.local.mapper
 
-import dev.daeyeon.data.local.entity.RepoEntity
 import dev.daeyeon.domain.entity.Repo
 
-class RepoMapper {
+class RepoLocalMapper {
 
-    fun toRepo(repoEntity: RepoEntity) =
+    fun toRepo(repoEntity: dev.daeyeon.local.entity.RepoEntity) =
         with(repoEntity) {
             Repo(
                 id = id,
@@ -23,7 +22,7 @@ class RepoMapper {
 
     fun toRepoEntity(repo: Repo) =
         with(repo) {
-            RepoEntity(
+            dev.daeyeon.local.entity.RepoEntity(
                 id = id,
                 repoName = repoName,
                 ownerName = ownerName,

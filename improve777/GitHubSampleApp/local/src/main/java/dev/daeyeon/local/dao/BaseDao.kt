@@ -1,4 +1,4 @@
-package dev.daeyeon.data.local.dao
+package dev.daeyeon.local.dao
 
 import androidx.room.Delete
 import androidx.room.Insert
