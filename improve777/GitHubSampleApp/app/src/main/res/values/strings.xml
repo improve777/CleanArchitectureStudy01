@@ -3,4 +3,5 @@
     <string name="main_search_label">검색:</string>
     <string name="main_search">search</string>
     <string name="main_input_search_text_plz">검색어를 입력해주세요</string>
+    <string name="all_number_fmt">%,d</string>
 </resources>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="trendingDeveloper"
+            type="dev.daeyeon.domain.entity.TrendingDeveloper" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/iv_trending_repo_avatar"
+                imgUri="@{trendingDeveloper.avatar}"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_trending_repo_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{trendingDeveloper.name}"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_trending_repo_avatar"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="android-architecture" />
+
+            <TextView
+                android:id="@+id/tv_trending_repo_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{trendingDeveloper.type}"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_trending_repo_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_trending_repo_name"
+                tools:text="android-architecture" />
+
+            <TextView
+                android:id="@+id/tv_trending_repo_url"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{trendingDeveloper.url}"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_trending_repo_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_trending_repo_description"
+                tools:text="https://github.com/improve777/android-architecture" />
+
+
+            <TextView
+                android:id="@+id/tv_trending_repo_owner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{trendingDeveloper.username}"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_trending_repo_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_trending_repo_url"
+                tools:text="improve777" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -12,5 +12,5 @@ val viewModelModule = module {
 
     viewModel { SearchRepoViewModel(get()) }
     viewModel { HomeViewModel() }
-    viewModel { TrendingViewModel() }
+    viewModel { TrendingViewModel(get(), get()) }
 }

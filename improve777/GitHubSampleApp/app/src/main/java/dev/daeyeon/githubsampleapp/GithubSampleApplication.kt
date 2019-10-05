@@ -18,7 +18,8 @@ class GithubSampleApplication : Application() {
             applicationContext = this,
             isDebuggable = BuildConfig.DEBUG,
             modules = listOf(
-                createNetworkModule("https://api.github.com/", BuildConfig.DEBUG),
+                createNetworkModule("github", "https://api.github.com/", BuildConfig.DEBUG),
+                createNetworkModule("trending", "https://github-trending-api.now.sh/", BuildConfig.DEBUG),
                 apiModule,
                 persistenceModule,
                 dataModule,

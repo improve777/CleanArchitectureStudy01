@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="repo"
-            type="dev.daeyeon.githubsampleapp.model.RepoModel" />
+            name="trendingRepo"
+            type="dev.daeyeon.githubsampleapp.model.TrendingRepoModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -24,44 +24,63 @@
             android:layout_height="match_parent"
             android:padding="8dp">
 
+            <ImageView
+                android:id="@+id/iv_trending_repo_avatar"
+                imgUri="@{trendingRepo.avatar}"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
-                android:id="@+id/tv_repo_name"
+                android:id="@+id/tv_trending_repo_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{repo.repoName}"
+                android:layout_marginStart="8dp"
+                android:text="@{trendingRepo.name}"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/tv_repo_language"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_trending_repo_language"
+                app:layout_constraintStart_toEndOf="@+id/iv_trending_repo_avatar"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="android-architecture" />
 
             <TextView
-                android:id="@+id/tv_repo_url"
+                android:id="@+id/tv_trending_repo_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{repo.repoUrl}"
+                android:text="@{trendingRepo.description}"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_repo_name"
+                app:layout_constraintStart_toStartOf="@+id/tv_trending_repo_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_trending_repo_name"
+                tools:text="android-architecture" />
+
+            <TextView
+                android:id="@+id/tv_trending_repo_url"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{trendingRepo.url}"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_trending_repo_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_trending_repo_description"
                 tools:text="https://github.com/improve777/android-architecture" />
 
 
             <TextView
-                android:id="@+id/tv_repo_owner_name"
+                android:id="@+id/tv_trending_repo_owner_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{repo.ownerName}"
+                android:text="@{trendingRepo.author}"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_repo_url"
+                app:layout_constraintStart_toStartOf="@+id/tv_trending_repo_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_trending_repo_url"
                 tools:text="improve777" />
 
             <TextView
-                android:id="@+id/tv_repo_language"
+                android:id="@+id/tv_trending_repo_language"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{repo.language}"
+                android:text="@{trendingRepo.language}"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -73,8 +92,8 @@
                 android:layout_marginTop="8dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_repo_owner_name">
+                app:layout_constraintStart_toStartOf="@+id/tv_trending_repo_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_trending_repo_owner_name">
 
                 <ImageView
                     android:layout_width="12dp"
@@ -82,11 +101,11 @@
                     android:src="@drawable/ic_star_black_24dp" />
 
                 <TextView
-                    android:id="@+id/tv_repo_star_count"
+                    android:id="@+id/tv_trending_repo_star_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="@{repo.starCount}"
+                    android:text="@{@string/all_number_fmt(trendingRepo.stars)}"
                     android:textSize="12sp"
                     tools:text="1" />
 
@@ -97,37 +116,13 @@
                     android:src="@drawable/ic_code_fork_symbol" />
 
                 <TextView
-                    android:id="@+id/tv_repo_fork_count"
+                    android:id="@+id/tv_trending_repo_fork_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="@{repo.forksCount}"
+                    android:text="@{@string/all_number_fmt(trendingRepo.forks)}"
                     android:textSize="12sp"
                     tools:text="8" />
-
-                <ImageView
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:layout_marginStart="8dp"
-                    android:src="@drawable/ic_remove_red_eye_black_24dp" />
-
-                <TextView
-                    android:id="@+id/tv_repo_watchers_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="@{repo.watchersCount}"
-                    android:textSize="12sp"
-                    tools:text="11" />
-
-                <TextView
-                    android:id="@+id/tv_repo_license_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@{repo.licenseName}"
-                    android:textSize="12sp"
-                    tools:text="Apache License 2.0" />
 
             </LinearLayout>
 

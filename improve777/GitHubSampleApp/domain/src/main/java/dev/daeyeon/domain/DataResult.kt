@@ -50,5 +50,5 @@ sealed class DataResult<out R> {
 /**
  * `true` if [Result] is of type [Success] & holds non-null [Success.data].
  */
-val Result<*>.succeeded
+val DataResult<*>.succeeded
     get() = this is DataResult.Success<*> && data != null
