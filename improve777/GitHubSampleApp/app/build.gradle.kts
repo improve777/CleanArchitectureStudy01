@@ -83,4 +83,5 @@ dependencies {
 
     // kakao
     implementation(Libraries.kakaoUserMgmt)
+    implementation(Libraries.kakaoTalk)
 }
