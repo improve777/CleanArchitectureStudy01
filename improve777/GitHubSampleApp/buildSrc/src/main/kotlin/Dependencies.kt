@@ -31,7 +31,7 @@ object Versions {
     const val targetSdk = 29
     const val buildTools = "29.0.1"
 
-    const val kotlin = "1.3.41"
+    const val kotlin = "1.3.60"
     const val appcompat = "1.1.0"
     const val lifecycleExt = "2.1.0"
 
